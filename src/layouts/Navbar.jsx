@@ -177,6 +177,15 @@ const Navbar = () => {
 
   const tabs = (
     <React.Fragment>
+      <IconButton
+        component={Link}
+        to="/"
+        disableRipple
+        sx={styles.logoContainer}
+        onClick={() => setValue(0)}
+      >
+        <LocalDiningIcon sx={styles.logo} />
+      </IconButton>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -338,50 +347,66 @@ const Navbar = () => {
       >
         <MenuIcon sx={styles.drawerIcon} />
       </IconButton>
+      <IconButton
+        component={Link}
+        to="/"
+        disableRipple
+        sx={styles.logoContainer}
+        onClick={() => setValue(0)}
+      >
+        <LocalDiningIcon sx={styles.logo} />
+      </IconButton>
     </React.Fragment>
   )
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            component={Link}
-            to="/"
-            disableRipple
-            sx={styles.logoContainer}
-            onClick={() => setValue(0)}
-          >
-            <LocalDiningIcon sx={styles.logo} />
-          </IconButton>
-          {matches ? drawer : tabs}
+    <React.Fragment>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            {matches ? drawer : tabs}
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: 'flex' }}>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMenu}
-    </Box>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: 'flex' }}>
+              <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search…"
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {renderMenu}
+      </Box>
+      <Box
+        sx={(theme) => ({
+          pt: {
+            ...theme.mixins.toolbar,
+          },
+          mb: '3.75em',
+          [theme.breakpoints.down('md')]: {
+            mb: '2.5em',
+          },
+          [theme.breakpoints.down('xs')]: {
+            mb: '1.75em',
+          },
+        })}
+      />
+    </React.Fragment>
   )
 }
 
