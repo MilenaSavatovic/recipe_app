@@ -1,27 +1,26 @@
 import { Typography } from '@mui/material'
 import React from 'react'
-import Popular from '../components/Popular'
+import SelectElement from '../components/SelectElement'
 import theme from '../layouts/Theme'
 
 const styles = {
   headingStyle: {
+    color: theme.palette.primary.main,
     textAlign: 'center',
-    color: theme.palette.secondary.main,
-    paddingBottom: '3rem',
+    marginBottom: '5rem',
   },
 }
 
-const Home = () => {
+const Cuisines = () => {
   return (
     <React.Fragment>
       <Typography variant="h3" sx={styles.headingStyle}>
         {' '}
-        Popular recipes
+        Cuisines of the world
       </Typography>
-
-      <Popular />
+      <SelectElement />
     </React.Fragment>
   )
 }
 
-export default Home
+export default Cuisines

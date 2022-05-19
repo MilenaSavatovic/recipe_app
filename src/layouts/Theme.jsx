@@ -1,19 +1,19 @@
 import { createTheme } from '@mui/material'
 
-const arcBlue = '#0B72B9'
-const arcOrange = '#FFBA60'
+const mainRed = '#A80022'
+const secondaryRed = '#651A1A'
 
 export default createTheme({
   palette: {
     common: {
-      blue: `${arcBlue}`,
-      arcOrange: `${arcOrange}`,
+      red: `${mainRed}`,
+      secondary: `${secondaryRed}`,
     },
     primary: {
-      main: `${arcBlue}`,
+      main: `${mainRed}`,
     },
     secondary: {
-      main: `${arcOrange}`,
+      main: `${secondaryRed}`,
     },
   },
   typography: {

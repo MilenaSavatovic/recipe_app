@@ -106,7 +106,7 @@ const styles = {
     width: '50px',
   },
   drawer: {
-    backgroundColor: theme.palette.success.main,
+    backgroundColor: theme.palette.primary.main,
     width: '70%',
   },
   drawerItem: {
@@ -117,6 +117,9 @@ const styles = {
 
   drawerItemSelected: {
     opacity: 1,
+  },
+  navbar: {
+    backgroundColor: theme.palette.primary.main,
   },
 }
 
@@ -361,7 +364,7 @@ const Navbar = () => {
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={styles.navbar}>
           <Toolbar>
             {matches ? drawer : tabs}
 
