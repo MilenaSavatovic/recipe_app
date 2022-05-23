@@ -9,14 +9,47 @@ import {
 import { Link } from 'react-router-dom'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
-const Categories = () => {
+const styles = {
+  imgStyle: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+  },
+}
+
+const Categories = (props) => {
+  console.log(props.width)
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }} display="flex" justifyContent="center">
-        <ImageList sx={{ width: 500, height: 450 }}>
-          {itemData.map((item) => (
+        <ImageList
+          sx={{
+            width: `${props.width}px`,
+            height: `${props.height}px`,
+
+            flexWrap: 'nowrap',
+            // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+            transform: 'translateZ(0)',
+
+            // Hide Scrollbar
+            '-ms-overflow-style': 'none' /* IE and Edge */,
+            'scrollbar-width': 'none' /* Firefox */,
+            '&::-webkit-scrollbar': {
+              /* Chrome */ display: 'none',
+            },
+          }}
+          // rowHeight={225}
+          cols={props.col}
+        >
+          {props.itemData.map((item) => (
             <ImageListItem key={item.img}>
-              <img src={item.img} alt={item.title} loading="lazy" />
+              <img
+                src={item.img}
+                alt={item.title}
+                loading="lazy"
+                sx={styles.imgStyle}
+              />
 
               <ImageListItemBar
                 title={item.title}
@@ -38,28 +71,5 @@ const Categories = () => {
     </React.Fragment>
   )
 }
-
-const itemData = [
-  {
-    img: require('../assets/recipesImg.jpg'),
-    title: 'Cuisines of the world',
-    path: '/recipes/cuisines',
-  },
-  {
-    img: require('../assets/diets.jpg'),
-    title: 'Dietary requirements',
-    path: '/recipes/diets',
-  },
-  {
-    img: require('../assets/intolerancies.jpg'),
-    title: 'Intolerancies',
-    path: '/recipes/intolerancies',
-  },
-  {
-    img: require('../assets/mealType.jpg'),
-    title: 'Meal types',
-    path: '/recipes/meals',
-  },
-]
 
 export default Categories

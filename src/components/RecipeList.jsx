@@ -18,22 +18,33 @@ const styles = {
 }
 
 const RecipeList = (props) => {
-  console.log(props.country)
   const [recipes, setRecipes] = useState([])
+  console.log(props.diet)
 
   useEffect(() => {
     getRecipes()
   }, [props])
 
   const getRecipes = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${props.country}`,
-    )
-    console.log(api)
-    const data = await api.json()
-    console.log(data)
+    if (props.diet === undefined) {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${props.country}`,
+      )
+      console.log(api)
+      const data = await api.json()
+      console.log(data)
 
-    setRecipes(data.results)
+      setRecipes(data.results)
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${props.diet}`,
+      )
+      console.log(api)
+      const data = await api.json()
+      console.log(data)
+
+      setRecipes(data.results)
+    }
   }
 
   if (recipes) {
