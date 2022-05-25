@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card, CardMedia, Typography, Box, Paper } from '@mui/material'
+import { Card, CardMedia, Link, Box, Paper } from '@mui/material'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/splide/dist/css/splide.min.css'
 import theme from '../layouts/Theme'
@@ -18,6 +18,10 @@ const styles = {
   },
   paperStyle: {
     background: 'rgba(168, 0, 34, 0.54)',
+  },
+  link: {
+    color: 'white',
+    fontSize: theme.typography.h5.fontSize,
   },
 }
 
@@ -85,7 +89,13 @@ const Popular = () => {
                         padding: '10px',
                       }}
                     >
-                      <Typography variant="h5">{recipe.title}</Typography>
+                      <Link
+                        href={'/recipes/cuisines/' + recipe.id}
+                        underline="hover"
+                        sx={styles.link}
+                      >
+                        {recipe.title}
+                      </Link>
                     </Box>
                   </Box>
                 </Card>
