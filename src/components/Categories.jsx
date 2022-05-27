@@ -22,7 +22,11 @@ const Categories = (props) => {
   console.log(props.width)
   return (
     <React.Fragment>
-      <Box sx={{ flexGrow: 1 }} display="flex" justifyContent="center">
+      <Box
+        sx={{ flexGrow: 1, m: '3rem' }}
+        display="flex"
+        justifyContent="center"
+      >
         <ImageList
           sx={{
             width: `${props.width}px`,

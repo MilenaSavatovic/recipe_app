@@ -20,13 +20,63 @@ const styles = {
 const RecipeList = (props) => {
   const [recipes, setRecipes] = useState([])
   console.log(props.diet)
+  console.log(props.intoleranciesList)
+  console.log(props.meal)
 
   useEffect(() => {
     getRecipes()
   }, [props])
 
   const getRecipes = async () => {
-    if (props.diet === undefined) {
+    // switch (props) {
+    //   case props.country !== undefined:
+    //     const api1 = await fetch(
+    //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${props.country}`,
+    //     )
+    //     console.log(api1)
+    //     const data1 = await api1.json()
+    //     console.log(data1)
+
+    //     setRecipes(data1.results)
+    //     break
+    //   case props.diet !== undefined:
+    //     const api2 = await fetch(
+    //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${props.diet}`,
+    //     )
+    //     console.log(api2)
+    //     const data2 = await api2.json()
+    //     console.log(data2)
+
+    //     setRecipes(data2.results)
+    //     break
+    //   case props.intoleranciesList !== undefined:
+    //     const api3 = await fetch(
+    //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&intolerances=${props.intoleranciesList}`,
+    //     )
+    //     console.log(api3)
+    //     const data3 = await api3.json()
+    //     console.log(data3.results)
+
+    //     setRecipes(data3.results)
+    //     break
+    //   case props.meal !== undefined:
+    //     const api4 = await fetch(
+    //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&type=${props.meal}`,
+    //     )
+    //     console.log(api4)
+    //     const data4 = await api4.json()
+    //     console.log(data4.results)
+
+    //     setRecipes(data4.results)
+    //     break
+    //   default:
+    //     console.log(props)
+    // }
+    if (
+      props.diet === undefined &&
+      props.intoleranciesList === undefined &&
+      props.meal === undefined
+    ) {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${props.country}`,
       )
@@ -35,13 +85,39 @@ const RecipeList = (props) => {
       console.log(data)
 
       setRecipes(data.results)
-    } else {
+    } else if (
+      props.country === undefined &&
+      props.intoleranciesList === undefined &&
+      props.meal === undefined
+    ) {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${props.diet}`,
       )
       console.log(api)
       const data = await api.json()
       console.log(data)
+
+      setRecipes(data.results)
+    } else if (
+      props.country === undefined &&
+      props.diet === undefined &&
+      props.meal === undefined
+    ) {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&intolerances=${props.intoleranciesList}`,
+      )
+      console.log(api)
+      const data = await api.json()
+      console.log(data.results)
+
+      setRecipes(data.results)
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&type=${props.meal}`,
+      )
+      console.log(api)
+      const data = await api.json()
+      console.log(data.results)
 
       setRecipes(data.results)
     }

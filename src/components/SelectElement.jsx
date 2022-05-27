@@ -20,6 +20,7 @@ const CuisinesList = () => {
             value={country}
             label="Country"
             onChange={handleChange}
+            sx={{ minWidth: 120 }}
           >
             {cousines.map((couisine, index) => {
               return (

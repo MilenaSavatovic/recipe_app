@@ -8,6 +8,7 @@ import Diets from './Diets'
 import Meals from './Meals'
 import Recipe from './Recipe'
 import DietRecipes from './DietRecipes'
+import MealsRecipes from './MealsRecipes'
 
 const Pages = () => {
   const location = useLocation()
@@ -20,7 +21,9 @@ const Pages = () => {
       <Route path="/recipes/intolerancies" element={<Intolerancies />} />
       <Route path="/recipes/diets" element={<Diets />} />
       <Route path="/recipes/diets/:type" element={<DietRecipes />} />
+
       <Route path="/recipes/meals" element={<Meals />} />
+      <Route path="/recipes/meals/:type" element={<MealsRecipes />} />
     </Routes>
   )
 }

@@ -23,48 +23,40 @@ const MultipleSelect = () => {
     { key: 10, label: 'Tree Nut', variant: 'outlined' },
     { key: 11, label: 'Wheat', variant: 'outlined' },
   ])
-  const [recipes, setRecipes] = useState([])
+
   const [query, setQuery] = useState('')
-  const [currentVariant, setCurrentVariant] = useState('outlined')
+
+  useEffect(() => {
+    fetchRecipes()
+  }, [chipData, selectedIntolerancies])
 
   const handleClick = (value) => {
-    console.log(value)
-
-    chipData.map((chip) => {
-      if (chip.label === value) {
-        console.log(chip.variant)
-        // if (chip.variant === 'outlined') {
-        //   return setChipData(
-        //     chipData[chipData.indexOf(chip.label)].variant === 'filled',
-        //   )
-        // } else {
-        //   return setChipData(
-        //     chipData[chipData.indexOf(chip.label)].variant === 'outlined',
-        //   )
-        // }
-      }
+    const index = chipData.findIndex((x) => x.label === value)
+    setChipData((prevValue) => {
+      return prevValue.map((item, itemIndex) => {
+        if (itemIndex === index) {
+          if (item.variant === 'outlined') {
+            setSelectedIntolerancies([...selectedIntolerancies, item])
+            return { ...item, variant: 'filled' }
+          } else {
+            setSelectedIntolerancies(
+              selectedIntolerancies.filter((data) => data.label !== item.label),
+            )
+            return { ...item, variant: 'outlined' }
+          }
+        } else {
+          return item
+        }
+      })
     })
   }
 
-  // const getRecipes = async () => {
-  //   const api = await fetch(
-  //     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&intolerancies=${query}`,
-  //   )
-  //   console.log(api)
-  //   const data = await api.json()
-  //   console.log(data)
-
-  //   setRecipes(data.results)
-  // }
-
-  // const fetchRecipes = () => {
-  //   console.log(selectedIntolerancies)
-  //   const queryArray = selectedIntolerancies.map((value) => value.label)
-  //   const stringArray = queryArray.join()
-  //   setQuery(stringArray)
-  //   console.log(stringArray)
-  //   getRecipes()
-  // }
+  const fetchRecipes = () => {
+    const queryArray = selectedIntolerancies.map((value) => value.label)
+    const stringArray = queryArray.join()
+    setQuery(stringArray)
+    console.log(stringArray)
+  }
 
   return (
     <React.Fragment>
@@ -80,7 +72,7 @@ const MultipleSelect = () => {
           }}
           component="ul"
         >
-          {chipData.map((data) => {
+          {chipData?.map((data) => {
             return (
               <ListItem key={data.key}>
                 <Chip
@@ -93,7 +85,7 @@ const MultipleSelect = () => {
           })}
         </Paper>
       </Box>
-      {/* <RecipeList intoleranciesList={intoleranciesList} /> */}
+      <RecipeList intoleranciesList={query} />
     </React.Fragment>
   )
 }
