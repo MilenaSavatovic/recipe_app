@@ -180,7 +180,7 @@ const Navbar = () => {
 
   const tabs = (
     <React.Fragment>
-      <IconButton
+      {/* <IconButton
         component={Link}
         to="/"
         disableRipple
@@ -188,12 +188,13 @@ const Navbar = () => {
         onClick={() => setValue(0)}
       >
         <LocalDiningIcon sx={styles.logo} />
-      </IconButton>
+      </IconButton> */}
       <Tabs
         value={value}
         onChange={handleChange}
         textColor="inherit"
         sx={{ ml: 'auto' }}
+        indicatorColor="transparent"
       >
         <Tab sx={styles.tabStyle} component={Link} to="/" label="Home" />
         <Tab
@@ -253,7 +254,7 @@ const Navbar = () => {
         }}
       >
         <List disablePadding>
-          <ListItem
+          {/* <ListItem
             onClick={() => {
               setOpenDrawer(false)
               setValue(0)
@@ -274,7 +275,7 @@ const Navbar = () => {
             >
               Home
             </ListItemText>
-          </ListItem>
+          </ListItem> */}
           <ListItem
             onClick={() => {
               setOpenDrawer(false)
