@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { styled, alpha } from '@mui/material/styles'
+
 import {
   Box,
   AppBar,
   Toolbar,
   IconButton,
-  InputBase,
   Menu,
   MenuItem,
   Tab,
@@ -18,52 +17,11 @@ import {
   SwipeableDrawer,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import SearchIcon from '@mui/icons-material/Search'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import theme from './Theme'
 import { Link } from 'react-router-dom'
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}))
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}))
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}))
+import Search from '../components/Search'
 
 const styles = {
   tabStyle: {
@@ -72,15 +30,6 @@ const styles = {
     marginLeft: '25px',
     color: 'white',
   },
-  // logo: {
-  //   height: '8em',
-  //   [theme.breakpoints.down('md')]: {
-  //     height: '7em',
-  //   },
-  //   [theme.breakpoints.down('xs')]: {
-  //     height: '5.5em',
-  //   },
-  // },
 
   buttonStyle: {
     borderRadius: '50px',
@@ -99,7 +48,6 @@ const styles = {
     '&:hover': {
       backgroundColor: 'transparent',
     },
-    marginLeft: '2rem',
   },
   drawerIcon: {
     height: '50px',
@@ -167,7 +115,7 @@ const Navbar = () => {
           setValue(2)
         }
         break
-      case '/foodblog':
+      case '/contact':
         if (value !== 3) {
           setValue(3)
         }
@@ -180,15 +128,6 @@ const Navbar = () => {
 
   const tabs = (
     <React.Fragment>
-      {/* <IconButton
-        component={Link}
-        to="/"
-        disableRipple
-        sx={styles.logoContainer}
-        onClick={() => setValue(0)}
-      >
-        <LocalDiningIcon sx={styles.logo} />
-      </IconButton> */}
       <Tabs
         value={value}
         onChange={handleChange}
@@ -212,8 +151,8 @@ const Navbar = () => {
         <Tab
           sx={styles.tabStyle}
           component={Link}
-          to="/foodblog"
-          label="Food blog"
+          to="/contact"
+          label="Contact"
         />
       </Tabs>
     </React.Fragment>
@@ -254,28 +193,6 @@ const Navbar = () => {
         }}
       >
         <List disablePadding>
-          {/* <ListItem
-            onClick={() => {
-              setOpenDrawer(false)
-              setValue(0)
-            }}
-            divider
-            button
-            component={Link}
-            to="/"
-            selected={value === 0}
-          >
-            <ListItemText
-              disableTypography
-              sx={
-                value === 0
-                  ? [styles.drawerItemSelected, styles.drawerItem]
-                  : styles.drawerItem
-              }
-            >
-              Home
-            </ListItemText>
-          </ListItem> */}
           <ListItem
             onClick={() => {
               setOpenDrawer(false)
@@ -328,7 +245,7 @@ const Navbar = () => {
             divider
             button
             component={Link}
-            to="/foodblog"
+            to="/contact"
             selected={value === 3}
           >
             <ListItemText
@@ -339,7 +256,7 @@ const Navbar = () => {
                   : styles.drawerItem
               }
             >
-              Food blog
+              Contact
             </ListItemText>
           </ListItem>
         </List>
@@ -371,15 +288,7 @@ const Navbar = () => {
 
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex' }}>
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ 'aria-label': 'search' }}
-                />
-              </Search>
+              <Search />
               <IconButton
                 size="large"
                 edge="end"

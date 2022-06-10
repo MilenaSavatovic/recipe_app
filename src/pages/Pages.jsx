@@ -10,6 +10,8 @@ import Recipe from './Recipe'
 import DietRecipes from './DietRecipes'
 import MealsRecipes from './MealsRecipes'
 import MealPlan from './MealPlan'
+import Searched from './Searched'
+import Contact from './Contact'
 
 const Pages = () => {
   const location = useLocation()
@@ -17,6 +19,7 @@ const Pages = () => {
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<Home />} />
       <Route path="/recipes" element={<Recipes />} />
+      <Route path="/recipes/:item" element={<Searched />} />
       <Route path="/recipes/cuisines" element={<Cuisines />} />
       <Route path="/recipes/cuisines/:id" element={<Recipe />} />
       <Route path="/recipes/intolerancies" element={<Intolerancies />} />
@@ -26,6 +29,7 @@ const Pages = () => {
       <Route path="/recipes/meals" element={<Meals />} />
       <Route path="/recipes/meals/:type" element={<MealsRecipes />} />
       <Route path="/mealplan" element={<MealPlan />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   )
 }

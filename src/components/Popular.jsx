@@ -13,7 +13,7 @@ const styles = {
     margin: 'auto',
     width: 400,
     height: 200,
-
+    paddingBottom: '3rem',
     textAlign: 'center',
   },
   paperStyle: {

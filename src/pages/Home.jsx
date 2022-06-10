@@ -2,6 +2,7 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import Popular from '../components/Popular'
 import theme from '../layouts/Theme'
+import Section from '../components/Section'
 
 const styles = {
   headingStyle: {
@@ -20,6 +21,7 @@ const Home = () => {
       </Typography>
 
       <Popular />
+      <Section />
     </React.Fragment>
   )
 }
