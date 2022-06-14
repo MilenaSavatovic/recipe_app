@@ -47,7 +47,7 @@ const Footer = () => {
           <Link href="/mealplan" underline="none" color="inherit">
             Meal Plan
           </Link>
-          <Link href="#" underline="none" color="inherit">
+          <Link href="/contact" underline="none" color="inherit">
             Contact
           </Link>
         </Stack>

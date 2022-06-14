@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Grid, Card, Link, CardMedia } from '@mui/material'
+import { Box, Grid, Card, Link, CardMedia, Typography } from '@mui/material'
 import theme from '../layouts/Theme'
 
 const styles = {
