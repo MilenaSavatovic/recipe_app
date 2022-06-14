@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from '../components/Categories'
+import { useTheme, useMediaQuery } from '@mui/material'
 
 const itemData = [
   {
@@ -71,9 +72,19 @@ const itemData = [
 ]
 
 const Diets = () => {
+  const theme = useTheme()
+  const iOS =
+    typeof navigator !== 'undefined' &&
+    /iPad|iPhone|iPod/.test(navigator.userAgent)
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
+
   return (
     <React.Fragment>
-      <Categories itemData={itemData} width="800" height="600" col={4} />
+      {matches ? (
+        <Categories itemData={itemData} width="800" height="600" col={2} />
+      ) : (
+        <Categories itemData={itemData} width="800" height="600" col={4} />
+      )}
     </React.Fragment>
   )
 }

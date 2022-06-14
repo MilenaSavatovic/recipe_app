@@ -20,7 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import theme from './Theme'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Search from '../components/Search'
 
 const styles = {
@@ -72,7 +72,6 @@ const styles = {
 }
 
 const Navbar = () => {
-  const id = useParams()
   const theme = useTheme()
   const iOS =
     typeof navigator !== 'undefined' &&
