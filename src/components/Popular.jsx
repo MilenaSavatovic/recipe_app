@@ -13,6 +13,11 @@ const styles = {
     margin: 'auto',
     width: 400,
     height: 200,
+    [theme.breakpoints.down('md')]: {
+      width: 300,
+      height: 100,
+    },
+
     paddingBottom: '3rem',
     textAlign: 'center',
   },

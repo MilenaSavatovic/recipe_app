@@ -2,6 +2,15 @@ import { Typography, Box, Grid } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SearchResult from '../components/SearchResult'
+import theme from '../layouts/Theme'
+
+const styles = {
+  headingStyle: {
+    color: theme.palette.primary.main,
+    textAlign: 'center',
+    marginBottom: '5rem',
+  },
+}
 
 const Searched = () => {
   let params = useParams()
@@ -25,7 +34,9 @@ const Searched = () => {
 
   return (
     <React.Fragment>
-      <Typography>The results of your search</Typography>
+      <Typography sx={styles.headingStyle} variant="h3">
+        The results of your search
+      </Typography>
       {results ? (
         <Box
           sx={{ flexGrow: 1 }}

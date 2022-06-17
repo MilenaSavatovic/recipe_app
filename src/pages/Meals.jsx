@@ -1,5 +1,6 @@
 import React from 'react'
 import Categories from '../components/Categories'
+import { useTheme, useMediaQuery } from '@mui/material'
 
 const itemData = [
   {
@@ -89,9 +90,16 @@ const itemData = [
 ]
 
 const Meals = () => {
+  const theme = useTheme()
+
+  const matches = useMediaQuery(theme.breakpoints.down('md'))
   return (
     <React.Fragment>
-      <Categories itemData={itemData} width="60%" height="600" col={7} />
+      {matches ? (
+        <Categories itemData={itemData} width="60%" height="600" col={1} />
+      ) : (
+        <Categories itemData={itemData} width="60%" height="600" col={7} />
+      )}
     </React.Fragment>
   )
 }

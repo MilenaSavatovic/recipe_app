@@ -73,9 +73,7 @@ const itemData = [
 
 const Diets = () => {
   const theme = useTheme()
-  const iOS =
-    typeof navigator !== 'undefined' &&
-    /iPad|iPhone|iPod/.test(navigator.userAgent)
+
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
   return (

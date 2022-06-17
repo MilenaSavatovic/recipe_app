@@ -11,6 +11,7 @@ import mealPlan from '../assets/mealPlan.jpg'
 import recipes from '../assets/recipes.jpg'
 import { Link } from 'react-router-dom'
 import React from 'react'
+import theme from '../layouts/Theme'
 
 const styles = {
   headingStyle: {
@@ -19,6 +20,9 @@ const styles = {
   },
   content: {
     marginLeft: '12rem',
+    [theme.breakpoints.down('md')]: {
+      marginLeft: '5rem',
+    },
   },
 }
 

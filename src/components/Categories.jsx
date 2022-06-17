@@ -43,7 +43,7 @@ const Categories = (props) => {
               /* Chrome */ display: 'none',
             },
           }}
-          // rowHeight={225}
+          // rowHeight={250}
           cols={props.col}
         >
           {props.itemData.map((item) => (

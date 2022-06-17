@@ -5,8 +5,6 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Menu,
-  MenuItem,
   Tab,
   Tabs,
   List,
@@ -17,7 +15,7 @@ import {
   SwipeableDrawer,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import AccountCircle from '@mui/icons-material/AccountCircle'
+
 import LocalDiningIcon from '@mui/icons-material/LocalDining'
 import theme from './Theme'
 import { Link } from 'react-router-dom'
@@ -43,6 +41,7 @@ const styles = {
     '&:hover': {
       backgroundColor: 'transparent',
     },
+    marginRight: 5,
   },
   drawerIconContainer: {
     '&:hover': {
@@ -78,21 +77,8 @@ const Navbar = () => {
     /iPad|iPhone|iPod/.test(navigator.userAgent)
   const matches = useMediaQuery(theme.breakpoints.down('md'))
 
-  const [anchorEl, setAnchorEl] = useState(null)
-
   const [openDrawer, setOpenDrawer] = useState(false)
   const [value, setValue] = useState(0)
-
-  const isMenuOpen = Boolean(anchorEl)
-
-  const handleProfileMenuOpen = (event) => {
-    console.log(event.currentTarget)
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleMenuClose = () => {
-    setAnchorEl(null)
-  }
 
   const handleChange = (e, newValue) => {
     setValue(newValue)
@@ -157,28 +143,6 @@ const Navbar = () => {
         />
       </Tabs>
     </React.Fragment>
-  )
-
-  const menuId = 'primary-search-account-menu'
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
   )
 
   const drawer = (
@@ -290,21 +254,9 @@ const Navbar = () => {
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: 'flex' }}>
               <Search />
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
             </Box>
           </Toolbar>
         </AppBar>
-        {renderMenu}
       </Box>
       <Box
         sx={(theme) => ({
