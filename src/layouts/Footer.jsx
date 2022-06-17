@@ -11,6 +11,8 @@ const styles = {
     typography: 'tab',
     minWidth: 10,
     marginTop: '0rem',
+    position: 'absolute',
+    bottom: '0px',
   },
 }
 

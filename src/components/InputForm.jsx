@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Button, FormControl, TextField } from '@mui/material'
 import MealList from './MealList'
+import theme from '../layouts/Theme'
 
 const InputForm = () => {
   const [calories, setCalories] = useState(2000)
@@ -35,6 +36,9 @@ const InputForm = () => {
         sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
           mb: '5rem',
+          [theme.breakpoints.down('md')]: {
+            mb: '13rem',
+          },
         }}
         noValidate
         autoComplete="off"

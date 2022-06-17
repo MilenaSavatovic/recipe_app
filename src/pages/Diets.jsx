@@ -79,7 +79,7 @@ const Diets = () => {
   return (
     <React.Fragment>
       {matches ? (
-        <Categories itemData={itemData} width="800" height="600" col={2} />
+        <Categories itemData={itemData} width="800" height="600" col={1} />
       ) : (
         <Categories itemData={itemData} width="800" height="600" col={4} />
       )}

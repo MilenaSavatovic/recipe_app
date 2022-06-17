@@ -10,6 +10,7 @@ import {
 } from '@mui/material'
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
+import theme from '../layouts/Theme'
 
 const styles = {
   subheadingStyle: {
@@ -17,8 +18,19 @@ const styles = {
   },
   paperStyle: {
     width: '70%',
+    [theme.breakpoints.down('md')]: {
+      width: '40%',
+      margin: '1rem, auto',
+      paddingLeft: '40px',
+    },
     margin: '5rem auto',
     padding: '5rem',
+  },
+  servings: {
+    m: '5px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '14px',
+    },
   },
 }
 
@@ -48,12 +60,27 @@ const Recipe = () => {
         </Typography>
 
         <Box display="flex" justifyContent="left">
-          <RestaurantMenuIcon sx={{ m: '5px' }} />
-          <Typography sx={{ m: '5px' }}> {details.servings} persons</Typography>
+          <RestaurantMenuIcon
+            sx={{
+              m: '5px',
+              [theme.breakpoints.down('md')]: {
+                m: '0px',
+              },
+            }}
+          />
+          <Typography sx={styles.servings}>
+            {details.servings} persons
+          </Typography>
 
-          <AccessTimeIcon sx={{ m: '5px' }} />
-          <Typography sx={{ m: '5px' }}>
-            {' '}
+          <AccessTimeIcon
+            sx={{
+              m: '5px',
+              [theme.breakpoints.down('md')]: {
+                m: '0px',
+              },
+            }}
+          />
+          <Typography sx={styles.servings}>
             {details.readyInMinutes} minutes
           </Typography>
         </Box>
@@ -63,8 +90,8 @@ const Recipe = () => {
           sx={{
             height: 233,
             width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
+            maxHeight: { xs: 140, md: 167 },
+            maxWidth: { xs: 200, md: 250 },
           }}
           alt={details.title}
           src={details.image}

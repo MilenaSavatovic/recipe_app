@@ -70,6 +70,7 @@ const MultipleSelect = () => {
             p: 0.5,
             m: 0,
           }}
+          elevation={0}
           component="ul"
         >
           {chipData?.map((data) => {

@@ -39,7 +39,12 @@ const Searched = () => {
       </Typography>
       {results ? (
         <Box
-          sx={{ flexGrow: 1 }}
+          sx={{
+            flexGrow: 1,
+            [theme.breakpoints.down('md')]: {
+              m: '2rem',
+            },
+          }}
           display="flex"
           justifyContent="center"
           alignItems="center"
