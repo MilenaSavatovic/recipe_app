@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import theme from '../layouts/Theme'
 
 const styles = {
   imgStyle: {
@@ -23,7 +24,16 @@ const Categories = (props) => {
   return (
     <React.Fragment>
       <Box
-        sx={{ flexGrow: 1, m: '3rem' }}
+        sx={{
+          flexGrow: 1,
+          m: '3rem',
+          [theme.breakpoints.down('md')]: {
+            mb: '12rem',
+          },
+          [theme.breakpoints.down('sm')]: {
+            mb: '8rem',
+          },
+        }}
         display="flex"
         justifyContent="center"
       >

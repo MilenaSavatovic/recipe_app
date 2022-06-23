@@ -37,7 +37,10 @@ const InputForm = () => {
           '& > :not(style)': { m: 1, width: '25ch' },
           mb: '5rem',
           [theme.breakpoints.down('md')]: {
-            mb: '13rem',
+            mb: '33rem',
+          },
+          [theme.breakpoints.down('sm')]: {
+            mb: '18rem',
           },
         }}
         noValidate

@@ -24,6 +24,11 @@ const styles = {
       marginLeft: '5rem',
     },
   },
+  image: {
+    [theme.breakpoints.down('md')]: {
+      width: '100vw',
+    },
+  },
 }
 
 const Section = () => {
@@ -60,6 +65,7 @@ const Section = () => {
             image={recipes}
             alt="recipes book"
             height="400"
+            sx={styles.image}
           />
         </Grid>
         <Grid item sx={12} md={6}>
@@ -69,6 +75,7 @@ const Section = () => {
               image={mealPlan}
               alt="recipes book"
               height="400"
+              sx={styles.image}
             />
           </Card>
         </Grid>

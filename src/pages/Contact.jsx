@@ -3,7 +3,11 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <Card sx={{ mb: '10rem' }}>
+    <Card
+      sx={{
+        mb: '10rem',
+      }}
+    >
       <Typography variant="h3" align="center">
         Contact us{' '}
       </Typography>

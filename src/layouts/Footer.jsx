@@ -1,4 +1,5 @@
 import { Container, Typography, Link, Stack, IconButton } from '@mui/material'
+
 import React from 'react'
 import theme from './Theme'
 import GitHubIcon from '@mui/icons-material/GitHub'
@@ -11,8 +12,6 @@ const styles = {
     typography: 'tab',
     minWidth: 10,
     marginTop: '0rem',
-    position: 'absolute',
-    bottom: '0px',
   },
 }
 
