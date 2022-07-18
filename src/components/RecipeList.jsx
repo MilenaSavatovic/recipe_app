@@ -29,7 +29,8 @@ const RecipeList = (props) => {
 
   const getRecipes = async () => {
     // switch (props) {
-    //   case props.country !== undefined:
+    //   case props.country:
+    //     console.log(props.country)
     //     const api1 = await fetch(
     //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${props.country}`,
     //     )
@@ -39,7 +40,8 @@ const RecipeList = (props) => {
 
     //     setRecipes(data1.results)
     //     break
-    //   case props.diet !== undefined:
+    //   case props.diet:
+    //     console.log(props.diet)
     //     const api2 = await fetch(
     //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&diet=${props.diet}`,
     //     )
@@ -49,7 +51,8 @@ const RecipeList = (props) => {
 
     //     setRecipes(data2.results)
     //     break
-    //   case props.intoleranciesList !== undefined:
+    //   case props.intoleranciesList:
+    //     console.log(props.intoleranciesList)
     //     const api3 = await fetch(
     //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&intolerances=${props.intoleranciesList}`,
     //     )
@@ -59,7 +62,8 @@ const RecipeList = (props) => {
 
     //     setRecipes(data3.results)
     //     break
-    //   case props.meal !== undefined:
+    //   case props.meal:
+    //     console.log(props.meal)
     //     const api4 = await fetch(
     //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&type=${props.meal}`,
     //     )
